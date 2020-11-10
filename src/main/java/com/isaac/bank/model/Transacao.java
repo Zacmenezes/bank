@@ -6,14 +6,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "transacao")
 public class Transacao {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column
+    @Column(name = "data")
     private LocalDateTime dataHora;
 
     @Column

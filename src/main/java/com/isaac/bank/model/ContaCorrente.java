@@ -5,15 +5,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "conta")
 public class ContaCorrente {
 
     @Id
     @GeneratedValue
+    private Long id;
+
+    @Column(name = "numero_conta")
     private Long numeroConta;
 
     @Column
-    private Double saldoAtual;
+    private Double saldo;
 
     public Long getNumeroConta() {
         return numeroConta;
@@ -23,11 +26,11 @@ public class ContaCorrente {
         this.numeroConta = numeroConta;
     }
 
-    public Double getSaldoAtual() {
-        return saldoAtual;
+    public Double getSaldo() {
+        return saldo;
     }
 
-    public void setSaldoAtual(Double saldoAtual) {
-        this.saldoAtual = saldoAtual;
+    public void setSaldo(Double saldoAtual) {
+        this.saldo = saldoAtual;
     }
 }
