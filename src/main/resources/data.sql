@@ -1,2 +1,1 @@
-INSERT INTO agencia (numero_agencia) VALUES
-  (1);
+INSERT INTO agencia (numero_agencia) VALUES (1);

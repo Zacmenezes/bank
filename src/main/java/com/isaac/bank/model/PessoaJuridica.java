@@ -1,7 +1,11 @@
 package com.isaac.bank.model;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
+@Entity(name = "PessoaJuridica")
+@DiscriminatorValue("PJ")
 public class PessoaJuridica extends Pessoa {
 
     @Column
