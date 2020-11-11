@@ -1,12 +1,15 @@
 package com.isaac.bank.model;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity(name = "PessoaJuridica")
 @DiscriminatorValue("PJ")
-public class PessoaJuridica extends Pessoa {
+@JsonTypeName("PJ")
+public class PessoaJuridica extends Cliente {
 
     @Column
     private String cpnj;

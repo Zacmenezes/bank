@@ -1,8 +1,13 @@
 package com.isaac.bank.model;
 
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiParam;
+import springfox.documentation.annotations.ApiIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
+import static javax.persistence.CascadeType.*;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity(name = "conta")
@@ -10,18 +15,21 @@ public class Conta {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
+    @ApiModelProperty(hidden=true)
     private Long id;
 
-    @Column(name = "numero_conta")
+    @Column(name = "numero_conta", unique = true)
     private Long numeroConta;
 
-    @OneToOne
-    private Pessoa cliente;
+    @OneToOne(cascade = ALL)
+    private Cliente cliente;
 
     @Column
     private Double saldo;
 
     @OneToMany
+    @ApiModelProperty(hidden=true)
     private List<Transacao> transacoes;
 
     public Long getNumeroConta() {
@@ -40,11 +48,11 @@ public class Conta {
         this.saldo = saldoAtual;
     }
 
-    public Pessoa getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public void setCliente(Pessoa cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 

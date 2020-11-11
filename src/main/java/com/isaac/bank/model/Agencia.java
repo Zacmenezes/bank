@@ -3,6 +3,7 @@ package com.isaac.bank.model;
 import javax.persistence.*;
 import java.util.List;
 
+import static javax.persistence.CascadeType.*;
 import static javax.persistence.GenerationType.*;
 
 @Entity(name = "agencia")
@@ -15,8 +16,8 @@ public class Agencia {
     @Column(name = "numero_agencia")
     private Long numeroAgencia;
 
-    @OneToMany
-    private List<Pessoa> clientes;
+    @OneToMany(cascade = ALL)
+    private List<Conta> contas;
 
     public Long getId() {
         return id;
@@ -30,11 +31,11 @@ public class Agencia {
         this.numeroAgencia = numeroAgencia;
     }
 
-    public List<Pessoa> getClientes() {
-        return clientes;
+    public List<Conta> getContas() {
+        return contas;
     }
 
-    public void setClientes(List<Pessoa> clientes) {
-        this.clientes = clientes;
+    public void setContas(List<Conta> contas) {
+        this.contas = contas;
     }
 }
