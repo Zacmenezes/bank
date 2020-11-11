@@ -23,7 +23,6 @@ public abstract class Cliente {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
     @ApiModelProperty(hidden=true)
     private Long id;
 

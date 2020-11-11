@@ -1,5 +1,7 @@
 package com.isaac.bank.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,12 +13,14 @@ public class Agencia {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
+    @ApiModelProperty(hidden=true)
     private Long id;
 
     @Column(name = "numero_agencia")
     private Long numeroAgencia;
 
     @OneToMany(cascade = ALL)
+    @ApiModelProperty(hidden=true)
     private List<Conta> contas;
 
     public Long getId() {

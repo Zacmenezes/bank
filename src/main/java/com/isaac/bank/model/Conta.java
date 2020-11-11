@@ -15,12 +15,14 @@ public class Conta {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
     @ApiModelProperty(hidden=true)
     private Long id;
 
     @Column(name = "numero_conta", unique = true)
     private Long numeroConta;
+
+    @ManyToOne(cascade = ALL)
+    private Agencia agencia;
 
     @OneToOne(cascade = ALL)
     private Cliente cliente;
@@ -38,6 +40,14 @@ public class Conta {
 
     public void setNumeroConta(Long numeroConta) {
         this.numeroConta = numeroConta;
+    }
+
+    public Agencia getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(Agencia agencia) {
+        this.agencia = agencia;
     }
 
     public Double getSaldo() {
